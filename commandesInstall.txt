@@ -1,0 +1,6 @@
+
+
+php composer.phar create-project webforce3/w mon-blog
+https://getcomposer.org/doc/00-intro.md#installation-windows
+composer create-project webforce3/w mon-blog
+http://localhost/mon-blog/public/check.php

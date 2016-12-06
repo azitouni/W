@@ -1,0 +1,22 @@
+
+
+Créer une page en utilisant le controlleur 'Default':
+  1- Fichier App/routes.php -> on ajoute une nouvelle route :
+      (ex: ['GET','/a-propos', 'Default#aPropos','a_propos'],)
+
+  2- Fichier app/Controller/DefaultController.php -> on cré une nouvelle  méthode dans le controller 'Default':
+    (ex:
+      public function aPropos(){
+        this.show('default/aPropos'); // indiquer le fichier view à utiliser
+      }
+    )
+
+  3- Dans le dossier App/Views/default on crée un nouveau fichier ( ex: aPropos.php)
+
+  4- Dans notre nouveau fichier App/Views/default/aPropos.php:
+    on spécifie dans quel 'Layout' utiliser, ainsi que le titre de la page
+    - <?php $this->layout('layout',['title'=> 'A Propos']); ?>
+    - En suite en ajoute le contenu de notre page entre les méthodes start et stop:
+    <? php $this->start('main_content'); ?>
+    <h2>Vous êtes sur la page à propos!!!</h2>
+    <? php  $this->stop('main_content'); ?>
