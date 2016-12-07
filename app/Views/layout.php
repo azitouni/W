@@ -2,9 +2,11 @@
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
-	<title><?= $this->e($title) ?></title>
-
+	<link rel="stylesheet" href="<?= $this->assetUrl('vendor/font-awesome/css/font-awesome.min.css') ?>">
+	<link rel="stylesheet" href="<?= $this->assetUrl('vendor/bootstrap/css/bootstrap.min.css') ?>">
+	<link rel="stylesheet" href="<?= $this->assetUrl('vendor/percentageloader/css/jquery.percentageloader-0.1.css') ?>">
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
+	<title><?= $this->e($title) ?></title>
 </head>
 <body>
 	<div class="container">
@@ -18,5 +20,10 @@
 		<footer>
 		</footer>
 	</div>
+	<script src="<?= $this->assetUrl('vendor/jquery/jquery.min.js') ?>"></script>
+	<script src="<?= $this->assetUrl('vendor/bootstrap/js/bootstrap.min.js') ?>"></script>
+
+	<script src="<?= $this->assetUrl('vendor/percentageloader/js/jquery.percentageloader-0.1.min.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/script.js') ?>"></script>
 </body>
 </html>

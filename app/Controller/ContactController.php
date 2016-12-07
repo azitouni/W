@@ -4,6 +4,8 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use PHPMailer;
+use \W\Model\UsersModel;
+use \W\Security\AuthentificationModel;
 
 class ContactController extends Controller
 {
@@ -17,8 +19,10 @@ class ContactController extends Controller
   /**
 	 * Page traitement formulaire
 	 */
-	public function traitementForm()
+	public function traitementForm($id)
 	{
+		$user = new UsersModel;
+		$equipier = $user->find($id)
     //
     $expediteur = $_POST['nom'];
 		$email_expediteur = $_POST['mail'];

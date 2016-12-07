@@ -1,11 +1,13 @@
 html, body {
 	font-family: Consolas, monaco, monospace;
-	background-color: #163a81;	
-	color: #F8F8F2;
+	background-color: #163a81;
+	color: #c2c22a;
 }
 
 .container {
-	margin: 50px;
+	margin-top: 50px;
+	margin: auto;
+	text-align: center;
 }
 
 a {
@@ -26,6 +28,27 @@ h2 {
 }
 
 form * {
-	display: block;
+	display: inline-block;
 	margin : 20px 0;
 }
+
+img {
+	text-align: center;
+	height: 300px;
+}
+.competence{
+	display: block;
+	text-align: center;
+	margin:auto;
+	width: 256px;
+	height: 256px;
+	position: relative;
+}
+.contact{
+	display: inline-block;
+}
+/*element.style {
+    width: 256px;
+    height: 256px;
+    position: relative;
+}*/
