@@ -19,13 +19,17 @@ class ContactController extends Controller
   /**
 	 * Page traitement formulaire
 	 */
-	public function traitementForm($id)
+	public function traitementForm($id = '')
 	{
 		$user = new UsersModel;
-		$equipier = $user->find($id)
+		if($id !== ''){
+		$equipier = $user->find($id);
+		}else{
+			$equipiers = $user->findAll();
+		}
     //
     $expediteur = $_POST['nom'];
-		$email_expediteur = $_POST['mail'];
+		$email_expediteur = $_POST['email'];
     $message = $_POST['message'];
     //var_dump($_POST);
     //require "includes/phpmailer/PHPMailerAutoload.php";
@@ -39,7 +43,15 @@ class ContactController extends Controller
     $mail->Username = "bioforce3@gmail.com"; // utilisateur pour le SMTP
     $mail->Password= "Azerty1234"; // mot de passe pour le SMTP
     $mail->setFrom('bioforce3@gmail.com', 'BioForce 3'); // l'expediteur
-    $mail->addAddress('adel@amsg.asso.fr'); // le destinataire
+		if($id !== ''){
+		$mail->addAddress($equipier['email']); //le destinataire
+		}
+		else{
+			foreach ($equipiers as $equipier) {
+				$mail->addAddress($equipier['email']); //les destinataires
+			}
+		}
+
     $mail->Subject = 'message de '.$expediteur; // le sujet du mail
     $mail->Body = "<html>
             <head>
@@ -59,7 +71,7 @@ class ContactController extends Controller
     }
     else {
       //$this->redirectToRoute('contact_index');
-      $this->show('contact/index',['erreur'=>false,'data'=>$mail->ErrorInfo]);
+      $this->show('contact/index',['erreur'=>false,'data'=>$mail]);
     }
 
 	}
