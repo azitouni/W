@@ -17,5 +17,6 @@
 		/*Inscription*/
 		['GET', '/inscription', 'Default#inscription', 'default_inscription'],
 		['POST', '/inscription', 'Default#traitementInscription', 'default_traitementInscription'],
-
+		/*Page*/
+		['GET', '/page/[:slug]', 'Default#displayPage', 'default_displayPage'],
 	);

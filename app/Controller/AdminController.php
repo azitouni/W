@@ -3,8 +3,8 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use W\Model\UsersModel;
-use Pages\PageModel;
+use \W\Model\UsersModel;
+use \Model\PageModel;
 
 class AdminController extends Controller
 {
@@ -22,7 +22,10 @@ class AdminController extends Controller
 	 */
 	public function ajoutPage()
 	{
-		$this->show('Admin/ajoutPage');
+		$users = new UsersModel();
+		$allUsers =$users->findAll();
+		$categories = ['basic','team'];
+		$this->show('Admin/ajoutPage', ['users' => $allUsers, 'categories' => $categories]);
 	}
 
 	/**
@@ -30,16 +33,9 @@ class AdminController extends Controller
 	 */
 	public function ajoutPageBDD()
 	{
-		$page = new PageModel;
+		$page = new PageModel();
 		$page->createPage($_POST);
 		$this->redirectToRoute('admin_ajoutPage');
 
-		// $this->titre = $_POST['titre'];
-    // $this->slug= $this->slugify($_POST['titre']);
-    // $this->data = serialize($_POST['data']);
-    // //$data = unserialize($_POST['data']);
-    // $this->categorie = $_POST['categorie'];
-
-		//$this->show('Admin/ajoutPageBDD');
 	}
 }

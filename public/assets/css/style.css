@@ -47,6 +47,9 @@ img {
 .contact{
 	display: inline-block;
 }
+.hide{
+	display: hidden;
+}
 /*element.style {
     width: 256px;
     height: 256px;

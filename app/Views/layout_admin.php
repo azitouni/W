@@ -5,6 +5,7 @@
 	<title><?= $this->e($title) ?></title>
 
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/admin_style.css') ?>">
+	<script type="text/javascript" src="<?= $this->assetUrl('js/jquery-3.1.1.min.js')  ?>">	</script>
 </head>
 <body>
 	<div class="container">
@@ -18,5 +19,7 @@
 		<footer>
 		</footer>
 	</div>
+
+
 </body>
 </html>

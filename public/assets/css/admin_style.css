@@ -29,3 +29,11 @@ form * {
 	display: block;
 	margin : 20px 0;
 }
+input,textarea {
+	display:block;
+	margin-bottom: 20px;
+}
+label{
+	color:black;
+	margin-bottom: 0;
+}

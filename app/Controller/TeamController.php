@@ -4,6 +4,7 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use W\Model\UsersModel;
+use \Model\PageModel;
 
 class TeamController extends Controller
 {
@@ -18,10 +19,16 @@ class TeamController extends Controller
 
 	public function displayProfile($username)
 	{
-		$user = new UsersModel;
+		$user = new UsersModel();
 		$equipier = $user->getUserByUsernameOrEmail($username);
-		$page = 'team/' . $equipier['username'];
-		$this->show($page, ['id' => $equipier['id']]);
+		$myPage= new PageModel();
+		$myPage->getPageByUserId($equipier['id']);
+		var_dump($myPage);
+		$url = 'team/' . $myPage->getSlug();
+		$this->show($url, ['id' => $equipier['id'],
+										 'page' => $myPage,
+									   'presentation' => $myPage->getData('presentation'),
+									   'competences' => $myPage->getData('competences') ]);
 	}
 
 }

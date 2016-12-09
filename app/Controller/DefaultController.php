@@ -5,6 +5,7 @@ namespace Controller;
 use \W\Controller\Controller;
 use \W\Model\UsersModel;
 use \W\Security\AuthentificationModel;
+use \Model\PageModel;
 
 class DefaultController extends Controller
 {
@@ -16,6 +17,22 @@ class DefaultController extends Controller
 	{
 		$this->show('default/home');
 	}
+
+	/**
+	 * Page d'accueil par défaut
+	 */
+	public function displayPage($slug)
+	{
+		$maPage = new PageModel();
+		$maPage->getPageBySlug($slug);
+		if ($maPage) {
+			$this->show('basic/page',['contenu_page' => $maPage]);
+		}
+		else {
+			$this->showNotFound();
+		}
+	}
+
 
 	/**
 	 * Page à propos
