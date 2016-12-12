@@ -11,6 +11,11 @@
 		['GET', '/admin', 'Admin#index', 'admin_index'],
 		['GET', '/admin/ajoutPage', 'Admin#ajoutPage', 'admin_ajoutPage'],
 		['POST', '/admin/ajoutPage', 'Admin#ajoutPageBDD', 'admin_ajoutPageBDD'],
+		/*créer une page connexion */
+		['GET', '/admin/connexion', 'Admin#connexion', 'admin_connexion'],
+		['POST', '/admin/connexion', 'Admin#traitementConnexion', 'admin_traitementConnexion'],
+		['GET', '/admin/deconnexion', 'Admin#deconnexion', 'admin_deconnexion'],
+
 		/*Team*/
 		['GET', '/team', 'Team#index', 'team_index'],
 		['GET', '/team/[:username]', 'Team#displayProfile', 'Team_displayProfile'],

@@ -17,15 +17,22 @@
   <input type="text" id="presentation" name="data[presentation]">
   <label for="competences">Competences : </label>
   <input type="text" id="competences" name="data[competences]">
-  <label for="user">Utilisateur : </label>
-  <select type="text" id="user" name="user_id" class="hide">
-		<option disable value="null">Aucun</option>
-  <?php   foreach ($users as $user) {
-         ?><option value="<?php echo $user['id']  ?>"> <?php   echo $user['username']  ?></option>
-           <?php
-      }
-   ?>
- </select>
+	<div id="team_fields">
+		<div>
+			<label for="User">Utilisateur : </label>
+			<select type="text" id="User" name="user_id" class="hide">
+				<option disable value="null">Aucun</option>
+		  <?php   foreach ($users as $user) {
+		         ?><option value="<?php echo $user['id']  ?>"> <?php   echo $user['username']  ?></option>
+		           <?php
+		      }
+		   ?>
+		 </select>
+		</div>
+		<div>
+			<input type="file" name="fichier">
+		</div>
+	</div>
   <input id="subBtn" type="submit" name="submit" value="Ajouter une page">
 </form>
 <script type="text/javascript" src="<?= $this->assetUrl('js/script.js')  ?>"></script>

@@ -12,6 +12,11 @@
 	<div class="container">
 		<header>
 			<h1>W :: <?= $this->e($title) ?></h1>
+			<?php if (isset($_SESSION['user'])): ?>
+				<form class="" action="<?= $this->url('admin_deconnexion'); ?>">
+					<button type="submit" class="btn btn-danger fa fa-power-off" name="btnOff"></button>
+				</form>
+			<?php endif; ?>
 		</header>
 		<section>
 			<?= $this->section('main_content') ?>
@@ -22,8 +27,6 @@
 	</div>
 	<script src="<?= $this->assetUrl('vendor/jquery/jquery.min.js') ?>"></script>
 	<script src="<?= $this->assetUrl('vendor/bootstrap/js/bootstrap.min.js') ?>"></script>
-
-	<script src="<?= $this->assetUrl('vendor/percentageloader/js/jquery.percentageloader-0.1.min.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/script.js') ?>"></script>
 </body>
 </html>

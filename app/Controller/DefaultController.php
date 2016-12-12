@@ -6,6 +6,7 @@ use \W\Controller\Controller;
 use \W\Model\UsersModel;
 use \W\Security\AuthentificationModel;
 use \Model\PageModel;
+use \W\Security\AuthentificationModel as Auth;
 
 class DefaultController extends Controller
 {
@@ -15,7 +16,8 @@ class DefaultController extends Controller
 	 */
 	public function home()
 	{
-		$this->show('default/home');
+		$loggedUser = $this->getUser();
+		$this->show('default/home',['user' => $loggedUser]);
 	}
 
 	/**
